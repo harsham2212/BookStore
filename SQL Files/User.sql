@@ -25,7 +25,7 @@ End
 
 exec sp_AddUsers 'Harsh Singh','harsh@gmail.com','123456','9155146677';
 
-select * from RegisterUser
+
 
 CREATE PROCEDURE sp_Login
 (
@@ -61,3 +61,5 @@ create procedure sp_ResetPassword
 	 where Email=@Email
 	 Select * from RegisterUser where Email=@Email; 
  End;
+
+ select * from RegisterUser

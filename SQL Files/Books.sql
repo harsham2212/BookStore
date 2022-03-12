@@ -118,8 +118,7 @@ BEGIN
 End
 
 
-Create procedure spGetAllBook  
-as   
+Create procedure spGetAllBook     
 Begin  
 	select * from Books
 End

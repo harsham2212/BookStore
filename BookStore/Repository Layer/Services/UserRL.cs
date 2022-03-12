@@ -122,7 +122,7 @@ namespace Repository_Layer.Services
             return tokenHandler.WriteToken(token);
         }
 
-        private static string GenerateJWTToken(string EmailId, int userId)
+        private static string GenerateJWTToken(string EmailId, int UserId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN");
@@ -131,7 +131,7 @@ namespace Repository_Layer.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim("EmailId", EmailId.ToString()),
-                    new Claim("userId", userId.ToString())
+                    new Claim("UserId", UserId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials =
