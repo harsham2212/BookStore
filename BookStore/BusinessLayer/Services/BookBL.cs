@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Interface;
 using CommonLayer.Models;
+using CommonLayer.Models.Book;
 using Repository_Layer.Interface;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        public List<BookModel> GetAllBooks()
+        public List<GetBooksModel> GetAllBooks()
         {
             try
             {
@@ -63,7 +64,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        public List<BookModel> GetAllBooksbyBookId(int BookId)
+        public List<GetBooksModel> GetAllBooksbyBookId(int BookId)
         {
             try
             {

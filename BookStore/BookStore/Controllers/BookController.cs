@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.Controllers
@@ -119,6 +120,7 @@ namespace BookStore.Controllers
         {
             try
             {
+                //BookModel model = bookBL.GetAllBooks().Where(e => e.BookId == BookId).FirstOrDefault();
                 //var BookList = new List<BookModel>();
                 var BookList = this.bookBL.GetAllBooksbyBookId(BookId);
                 if (BookList != null)

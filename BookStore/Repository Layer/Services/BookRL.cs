@@ -1,4 +1,5 @@
 ﻿using CommonLayer.Models;
+using CommonLayer.Models.Book;
 using Microsoft.Extensions.Configuration;
 using Repository_Layer.Interface;
 using System;
@@ -129,7 +130,7 @@ namespace Repository_Layer.Services
             }
         }
 
-        public List<BookModel> GetAllBooks()
+        public List<GetBooksModel> GetAllBooks()
         {
             sqlConnection = new SqlConnection(this.Configuration.GetConnectionString("BookStoreDB"));
             try
@@ -143,10 +144,10 @@ namespace Repository_Layer.Services
                     SqlDataReader sqlData = sqlCommand.ExecuteReader();
                     if (sqlData.HasRows)
                     {
-                        List<BookModel> allBook = new List<BookModel>();
+                        List<GetBooksModel> allBook = new List<GetBooksModel>();
                         while (sqlData.Read())
                         {
-                            BookModel bookModel = new BookModel();
+                            GetBooksModel bookModel = new GetBooksModel();
                             bookModel.BookId = Convert.ToInt32(sqlData["BookId"]);
                             bookModel.BookName = sqlData["BookName"].ToString();
                             bookModel.AuthorName = sqlData["AuthorName"].ToString();
@@ -178,18 +179,18 @@ namespace Repository_Layer.Services
             }
         }
 
-        public List<BookModel> GetAllBooksbyBookId(int BookId)
+        public List<GetBooksModel> GetAllBooksbyBookId(int BookId)
         {
             sqlConnection = new SqlConnection(this.Configuration.GetConnectionString("BookStoreDB"));
             try
             {
                 using (sqlConnection)
                 {
-                    List<BookModel> BookList = new List<BookModel>();
+                    List<GetBooksModel> BookList = new List<GetBooksModel>();
                     string storeprocedure = "spGetBooks";
                     SqlCommand sqlCommand = new SqlCommand(storeprocedure, sqlConnection);
                     sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    BookModel bookModel = new BookModel();
+                    GetBooksModel bookModel = new GetBooksModel();
                     sqlCommand.Parameters.AddWithValue("@BookId", BookId);
                     sqlConnection.Open();
                     SqlDataReader sqlData = sqlCommand.ExecuteReader();

@@ -96,6 +96,8 @@ namespace Repository_Layer.Services
             {
                 sqlConnection.Close();
             }
+
+           
         }
         public string GenerateToken(string Email)
         {

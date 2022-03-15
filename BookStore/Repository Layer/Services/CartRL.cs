@@ -101,7 +101,7 @@ namespace Repository_Layer.Services
                         {
                             BookModel bookModel = new BookModel();
                             GetCartModel getCartModel = new GetCartModel();
-                            bookModel.BookId = Convert.ToInt32(sqlData["BookId"]);
+                            //bookModel.BookId = Convert.ToInt32(sqlData["BookId"]);
                             bookModel.BookName = sqlData["BookName"].ToString();
                             bookModel.AuthorName = sqlData["AuthorName"].ToString();
                             bookModel.DiscountPrice = Convert.ToInt32(sqlData["DiscountPrice"]);

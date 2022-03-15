@@ -72,10 +72,6 @@ Begin
 			BookCount=@BookCount			
 			where BookId = @BookId;
 		end
-		else
-		begin
-			Select 1;
-		end
 		COMMIT TRANSACTION; 
 	End try
 	Begin catch
@@ -93,8 +89,6 @@ BEGIN
 	 begin
 	   delete from Books WHERE BookId=@BookId;
    	 end
-	 else
-	   Select 1;
  End try
  Begin catch
 		SELECT  ERROR_MESSAGE() AS ErrorMessage;    
